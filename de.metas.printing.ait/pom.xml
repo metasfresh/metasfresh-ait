@@ -2,11 +2,12 @@
 	xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
 	<parent>
-		<artifactId>de.metas.parent</artifactId>
-		<groupId>de.metas</groupId>
+		<groupId>de.metas.ait</groupId>
+		<artifactId>de.metas.ait</artifactId>
 		<version>10.0.0</version>
-		<relativePath>../de.metas.parent/pom.xml</relativePath>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
@@ -15,6 +16,15 @@
 	<version>10.0.0</version>
 	<packaging>jar</packaging>
 
+	<properties>
+		<metasfresh.version>[1,10.0.0]</metasfresh.version>
+		<metasfresh-esb-camel.version>[1,10.0.0]</metasfresh-esb-camel.version>
+		
+		<camel.version>2.16.1</camel.version>
+		<cxf.version>3.1.4</cxf.version>
+
+	</properties>
+	
 	<description>Print Processing (Mass &amp; Single) - AITs</description>
 
 	<dependencies>
@@ -22,6 +32,7 @@
 		<dependency>
 			<artifactId>camel-test</artifactId>
 			<groupId>org.apache.camel</groupId>
+			<version>${camel.version}</version>
 			<scope>test</scope>
 			<exclusions>
 				<exclusion>
@@ -34,7 +45,7 @@
 		<dependency>
 			<groupId>de.metas.adempiere.adempiere</groupId>
 			<artifactId>de.metas.adempiere.adempiere.serverRoot.base</artifactId>
-			<version>10.0.0</version>
+			<version>${metasfresh.version}</version>
 			<classifier>tests</classifier>
 			<scope>test</scope>
 			<exclusions>
@@ -53,7 +64,7 @@
 		<dependency>
 			<groupId>de.metas.printing</groupId>
 			<artifactId>de.metas.printing.base</artifactId>
-			<version>10.0.0</version>
+			<version>${metasfresh.version}</version>
 			<type>jar</type>
 			<scope>test</scope>
 			<exclusions>
@@ -62,7 +73,7 @@
 		<dependency>
 			<groupId>de.metas.printing</groupId>
 			<artifactId>de.metas.printing.base</artifactId>
-			<version>10.0.0</version>
+			<version>${metasfresh.version}</version>
 			<classifier>tests</classifier>
 			<scope>test</scope>
 		</dependency>
@@ -71,13 +82,13 @@
 		<dependency>
 			<groupId>de.metas.printing.esb</groupId>
 			<artifactId>de.metas.printing.esb.camel</artifactId>
-			<version>10.0.0</version>
+			<version>${metasfresh-esb-camel.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>de.metas.printing.esb</groupId>
 			<artifactId>de.metas.printing.esb.camel</artifactId>
-			<version>10.0.0</version>
+			<version>${metasfresh-esb-camel.version}</version>
 			<type>test-jar</type>
 			<scope>test</scope>
 		</dependency>
@@ -86,14 +97,14 @@
 		<dependency>
 			<groupId>de.metas.printing</groupId>
 			<artifactId>de.metas.printing.client</artifactId>
-			<version>10.0.0</version>
+			<version>${metasfresh.version}</version>
 			<type>jar</type>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>de.metas.printing</groupId>
 			<artifactId>de.metas.printing.client</artifactId>
-			<version>10.0.0</version>
+			<version>${metasfresh.version}</version>
 			<type>test-jar</type>
 			<scope>test</scope>
 		</dependency>
@@ -103,6 +114,7 @@
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-core</artifactId>
+			<version>${camel.version}</version>
 			<scope>test</scope>
 			<exclusions>
 				<exclusion>
@@ -114,6 +126,7 @@
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-jms</artifactId>
+			<version>${camel.version}</version>
 			<scope>test</scope>
 			<exclusions>
 				<exclusion>
@@ -140,6 +153,7 @@
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-transports-http-jetty</artifactId>
+			<version>${cxf.version}</version>
 			<scope>test</scope>
 			<exclusions>
 				<exclusion>
@@ -164,6 +178,7 @@
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-script</artifactId>
+			<version>${camel.version}</version>
 			<scope>test</scope>
 			<exclusions>
 				<exclusion>
@@ -175,6 +190,7 @@
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-jaxb</artifactId>
+			<version>${camel.version}</version>
 			<scope>test</scope>
 			<exclusions>
 				<exclusion>
@@ -186,6 +202,7 @@
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-cxf</artifactId>
+			<version>${camel.version}</version>
 			<scope>test</scope>
 			<exclusions>
 				<exclusion>
@@ -201,6 +218,7 @@
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-jackson</artifactId>
+			<version>${camel.version}</version>
 			<scope>test</scope>
 			<exclusions>
 				<exclusion>
@@ -241,40 +259,24 @@
 			<!-- needed because of TestClientUI class -->
 			<groupId>de.metas.adempiere.ait</groupId>
 			<artifactId>de.metas.adempiere.ait</artifactId>
-			<version>10.0.0</version>
+			<version>${project.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>de.metas.document.archive</groupId>
 			<artifactId>de.metas.document.archive.base</artifactId>
-			<version>10.0.0</version>
+			<version>${metasfresh.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>de.metas.document.archive</groupId>
 			<artifactId>de.metas.document.archive.base</artifactId>
-			<version>10.0.0</version>
+			<version>${metasfresh.version}</version>
 			<classifier>tests</classifier>
 			<scope>test</scope>
 		</dependency>
 
 	</dependencies>
-
-	<dependencyManagement>
-		<dependencies>
-			<!-- get the dependency management of the de.metas.esb "commons" project -->
-			<dependency>
-				<groupId>de.metas.esb</groupId>
-				<artifactId>de.metas.esb</artifactId>
-				<!-- 
-				Looks like there is no version range supported here, so for the time beeing, we try our luck with ${project.version}.
-				-->
-				<version>${project.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
 
 	<build>
 		<plugins>

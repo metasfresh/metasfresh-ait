@@ -3,18 +3,20 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>de.metas.parent</artifactId>
-		<groupId>de.metas</groupId>
+		<groupId>de.metas.ait</groupId>
+		<artifactId>de.metas.ait</artifactId>
 		<version>10.0.0</version>
-		<relativePath>../de.metas.parent/pom.xml</relativePath>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 	<groupId>de.metas.adempiere.ait</groupId>
 	<artifactId>de.metas.adempiere.ait</artifactId>
 	<packaging>jar</packaging>
 
-	<description>Framework for ADempiere automated integration tests</description>
-
+	<properties>
+		<metasfresh.version>[1,10.0.0]</metasfresh.version>
+	</properties>
+	
 	<dependencies>
 		
 		<!-- overriding the scope from the parent pom -->
@@ -35,26 +37,26 @@
 			<!-- this project really depends on swat, not on de.metas.adempiere.adempiere.base -->
 			<groupId>de.metas.swat</groupId>
 			<artifactId>de.metas.swat.base</artifactId>
-			<version>10.0.0</version>
+			<version>${metasfresh.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>de.metas.banking</groupId>
 			<artifactId>de.metas.banking.base</artifactId>
-			<version>10.0.0</version>
+			<version>${metasfresh.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>de.metas.adempiere.adempiere</groupId>
 			<artifactId>de.metas.adempiere.adempiere.base</artifactId>
-			<version>10.0.0</version>
+			<version>${metasfresh.version}</version>
 			<classifier>tests</classifier>
 		</dependency>
 
 		<dependency>
 			<groupId>de.metas.business</groupId>
 			<artifactId>de.metas.business</artifactId>
-			<version>10.0.0</version>
+			<version>${metasfresh.version}</version>
 		</dependency>
 
 	</dependencies>
